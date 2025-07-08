@@ -6,12 +6,15 @@ This BI project transforms a relational **BikeStores** database into an analytic
 ## 🔧 Key Components
 
 ### Data Warehouse Design
+
 - **Star Schema**:
   - **Fact Table**: `ventes` (sales quantities/amounts)
   - **Dimensions**: 
     - `Store` (store → city → state hierarchy)
     - `Product` (product → brand, product → category hierarchies)
 - Created via SQL scripts (`Creation_DW_BikeStoresDW.sql`)
+>
+> ![image](https://github.com/user-attachments/assets/4a53e819-2673-4b27-b2c7-6f0874a3ec67)
 
 ### SSIS ETL Pipeline
 1. **Data Cleaning**:
@@ -24,11 +27,14 @@ This BI project transforms a relational **BikeStores** database into an analytic
    - Calculates sales amounts (`list_price * quantity`)
 
 ### Tableau Dashboard
-![image](https://github.com/user-attachments/assets/4a53e819-2673-4b27-b2c7-6f0874a3ec67)
 
 ## 📊 Visualizations
 
 The Tableau dashboard includes the following visualizations:
+
+>
+>![image](https://github.com/user-attachments/assets/8226ae5b-719f-4123-a654-29d49feaa20e)
+>
 
 - 📅 **Monthly Quantity Sold** – Bar chart showing product quantity sold per month to detect seasonality.
 - 📈 **Annual Sales Evolution** – Line chart tracking the total sales per year, highlighting overall growth trends.
@@ -41,7 +47,7 @@ These visualizations provide a clear overview of sales dynamics across time, pro
 - **ETL**: SQL Server Integration Services (SSIS)
 - **Data Warehouse**: SQL Server
 - **Visualization**: Tableau
-- **Source Data**: BikeStores SQL database (`sales` + `production` schemas)
+- **Source Data**: BikeStores SQL Server database (`sales` + `production` schemas)
 
 ## 📊 Key Metrics
 - **Sales Amount**: SUM(`montant`)
