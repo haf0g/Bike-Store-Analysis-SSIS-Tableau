@@ -1,0 +1,2881 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/12/2025 10:26:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VCL7S4H"
+  DTS:CreatorName="DESKTOP-VCL7S4H\hp"
+  DTS:DTSID="{6049CE98-2E8D-45D5-BC60-4FBB898276C5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{99EF01F3-5FAD-49DA-BED1-5222DB95E477}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{552E5F2F-78B7-42AE-B1C1-14A5DA65225B}"
+      DTS:ObjectName="DESKTOP-VCL7S4H.BikeStores">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-VCL7S4H;Initial Catalog=BikeStores;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{552E5F2F-78B7-42AE-B1C1-14A5DA65225B}DESKTOP-VCL7S4H.BikeStores;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1637C79D-1B0F-42DD-B198-CFE94A9866C7}"
+      DTS:ObjectName="DESKTOP-VCL7S4H.BikeStoresDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-VCL7S4H;Initial Catalog=BikeStoresDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{1637C79D-1B0F-42DD-B198-CFE94A9866C7}DESKTOP-VCL7S4H.BikeStoresDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Alim Categorie - Marque"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{DBDE986B-1D71-423D-ABD4-DD9C77518DFE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alim Categorie - Marque"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Alim Categorie - Marque\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Marque]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[brand_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="brand_name"
+                      externalMetadataColumnId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[marque]"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB].Columns[brand_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDMarque]"
+                      dataType="i4"
+                      name="IDMarque" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[marque]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="marque" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Categorie - Marque\Destination OLE DB 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Categorie]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[caategorie]"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB].Columns[category_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[IDcategorie]"
+                      dataType="i4"
+                      name="IDcategorie" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[caategorie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="caategorie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Categorie - Marque\Source OLE DB Brand"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB Brand"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [brand_name] 
+FROM [BikeStores].[production].[brands]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB].Columns[brand_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB].ExternalColumns[brand_name]"
+                      length="255"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB].Columns[brand_name]"
+                      name="brand_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB].ExternalColumns[brand_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="brand_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[brand_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[brand_name]"
+                      name="brand_name" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Categorie - Marque\Source OLE DB Category"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB Category"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [category_name] 
+FROM [BikeStores].[production].[categories]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Category.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB].Columns[category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB].ExternalColumns[category_name]"
+                      length="255"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB].Columns[category_name]"
+                      name="category_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB].ExternalColumns[category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="category_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[category_name]"
+                      name="category_name" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Alim Categorie - Marque.Paths[Sortie de source OLE DB]"
+              endId="Package\Alim Categorie - Marque\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Categorie - Marque\Source OLE DB Brand.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Alim Categorie - Marque.Paths[Sortie de source OLE DB1]"
+              endId="Package\Alim Categorie - Marque\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Categorie - Marque\Source OLE DB Category.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Alim Etat"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8D2707A3-B7EA-4B95-B82A-45A9C41CFF42}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alim Etat"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Alim Etat\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[etat]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Etat\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NomEtat]"
+                      lineageId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[state]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDetat]"
+                      dataType="i4"
+                      name="IDetat" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NomEtat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="NomEtat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Etat\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Etat\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Etat\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Etat\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Etat\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Etat\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct(state) from [BikeStores].[sales].[stores]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Etat\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[state]"
+                      length="10"
+                      lineageId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="state" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Etat\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Alim Etat.Paths[Sortie de source OLE DB]"
+              endId="Package\Alim Etat\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Etat\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Alim Produit"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{9ACA2EA7-DE41-4D96-9AB4-88FC29558F4D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alim Produit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Alim Produit\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Produit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Produit\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[IDcategorie]"
+                      cachedDataType="i4"
+                      cachedName="IDcategorie"
+                      externalMetadataColumnId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDcategorie]"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDcategorie]" />
+                    <inputColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[IDMarque]"
+                      cachedDataType="i4"
+                      cachedName="IDMarque"
+                      externalMetadataColumnId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDmarque]"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDMarque]" />
+                    <inputColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomProduit]"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDProduit]"
+                      dataType="i4"
+                      name="IDProduit" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomProduit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="nomProduit" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDmarque]"
+                      dataType="i4"
+                      name="IDmarque" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDcategorie]"
+                      dataType="i4"
+                      name="IDcategorie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Produit\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Produit\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT p.product_name,c.IDcategorie,m.IDMarque 
+FROM [BikeStores].[production].[products] as p CROSS JOIN [BikeStoresDW].[dbo].[Categorie] as c 
+CROSS JOIN [BikeStoresDW].[dbo].[marque] as m 
+where p.brand_id=m.IDMarque 
+and p.category_id=c.IDcategorie</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Produit\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[product_name]"
+                      length="255"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_name]"
+                      name="product_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDcategorie]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDcategorie]"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDcategorie]"
+                      name="IDcategorie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDMarque]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDMarque]"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDMarque]"
+                      name="IDMarque"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDcategorie]"
+                      dataType="i4"
+                      name="IDcategorie" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDMarque]"
+                      dataType="i4"
+                      name="IDMarque" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDcategorie]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDcategorie]"
+                      name="IDcategorie" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDMarque]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDMarque]"
+                      name="IDMarque" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Produit\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Alim Produit.Paths[Sortie de source OLE DB]"
+              endId="Package\Alim Produit\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Produit\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Alim Store"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8616BF5C-9D6C-49E6-9105-2A753652D910}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alim Store"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Alim Store\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Store]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Store\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[IDville]"
+                      cachedDataType="i4"
+                      cachedName="IDville"
+                      externalMetadataColumnId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDVille]"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDville]" />
+                    <inputColumn
+                      refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nomstore]"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[store_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDstore]"
+                      dataType="i4"
+                      name="IDstore" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nomstore]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nomstore" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDVille]"
+                      dataType="i4"
+                      name="IDVille" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Store\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Store\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Store\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Store\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Store\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Store\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s1.store_name,t2.IDville 
+FROM [BikeStores].[sales].[stores] as s1 CROSS JOIN [BikeStoresDW].[dbo].[ville]as t2 
+where s1.city= t2.Nomville</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Store\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[store_name]"
+                      length="255"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[store_name]"
+                      name="store_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDville]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDville]"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDville]"
+                      name="IDville"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="store_name" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDville]"
+                      dataType="i4"
+                      name="IDville" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[store_name]"
+                      name="store_name" />
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDville]"
+                      dataType="i4"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDville]"
+                      name="IDville" />
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Store\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Alim Store.Paths[Sortie de source OLE DB]"
+              endId="Package\Alim Store\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Store\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Alim Ville"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6B53D1D6-CDAA-4058-83D2-AAAB43DFBC46}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alim Ville"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Alim Ville\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Ville]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Ville\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[IDetat]"
+                      cachedDataType="i4"
+                      cachedName="IDetat"
+                      externalMetadataColumnId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDetat]"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDetat]" />
+                    <inputColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nomville]"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[city]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDville]"
+                      dataType="i4"
+                      name="IDville" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Nomville]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nomville" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDetat]"
+                      dataType="i4"
+                      name="IDetat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Alim Ville\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Ville\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Ville\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Ville\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Alim Ville\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s1.city,t2.IDetat 
+FROM [BikeStores].[sales].[stores] as s1 CROSS JOIN [BikeStoresDW].[dbo].[etat]as t2 
+where s1.state=t2.NomEtat</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Alim Ville\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStores]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDetat]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDetat]"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDetat]"
+                      name="IDetat"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDetat]"
+                      dataType="i4"
+                      name="IDetat" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDetat]"
+                      dataType="i4"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDetat]"
+                      name="IDetat" />
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Alim Ville\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Alim Ville.Paths[Sortie de source OLE DB]"
+              endId="Package\Alim Ville\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Alim Ville\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim Produit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{857922B5-FF7D-4FCD-ABC0-D421DA7F8B49}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim Produit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1637C79D-1B0F-42DD-B198-CFE94A9866C7}"
+          SQLTask:SqlStatementSource="delete from [BikeStoresDW].[dbo].[produit] &#xA;delete from [BikeStoresDW].[dbo].[categorie] &#xA;delete from [BikeStoresDW].[dbo].[marque] &#xA;DBCC CHECKIDENT (produit, RESEED, 0) &#xA;DBCC CHECKIDENT (categorie, RESEED, 0) &#xA;DBCC CHECKIDENT (marque, RESEED, 0) " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim Store"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{5505F0D9-095A-4B6C-9E7A-5C74DFD6358D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim Store"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1637C79D-1B0F-42DD-B198-CFE94A9866C7}"
+          SQLTask:SqlStatementSource="delete from [BikeStoresDW].[dbo].[Store] &#xA;delete from [BikeStoresDW].[dbo].[ville] &#xA;delete from [BikeStoresDW].[dbo].[etat] &#xA;DBCC CHECKIDENT (Store, RESEED, 0) &#xA;DBCC CHECKIDENT (ville, RESEED, 0) &#xA;DBCC CHECKIDENT (etat, RESEED, 0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fact Vente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{F13E9ADE-A73B-4C6D-8167-76474B0C4119}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact Vente"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1637C79D-1B0F-42DD-B198-CFE94A9866C7}"
+          SQLTask:SqlStatementSource="delete from [BikeStoresDW].[dbo].[ventes]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux  Final"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{25F7D7E4-1574-4952-BE50-6D18B8048F33}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux  Final"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux  Final\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Ventes]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux  Final\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[IDstore]"
+                      cachedDataType="i4"
+                      cachedName="IDstore"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDStore]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDstore]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[montant]"
+                      cachedDataType="numeric"
+                      cachedName="montant"
+                      cachedPrecision="21"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Montant]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[montant]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[product_id]"
+                      cachedDataType="i4"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDProduit]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantite]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantite]"
+                      dataType="i4"
+                      name="Quantite" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Montant]"
+                      dataType="r8"
+                      name="Montant" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDStore]"
+                      dataType="i4"
+                      name="IDStore" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[IDProduit]"
+                      dataType="i4"
+                      name="IDProduit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux  Final\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux  Final\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  distinct oi.product_id 
+,oi.[quantity] 
+,s.IDstore 
+,oi.[list_price]*oi.[quantity] as montant 
+FROM [BikeStores].[sales].[order_items] as oi CROSS JOIN [BikeStores].[sales].[orders] as o  CROSS 
+JOIN [BikeStoresDW].[dbo].[store] as s
+where oi.order_id=o.order_id 
+and o.store_id=s.IDstore 
+order by oi.product_id</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux  Final\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-VCL7S4H.BikeStoresDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[product_id]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[quantity]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDstore]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDstore]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[IDstore]"
+                      name="IDstore"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      name="montant"
+                      precision="21"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[product_id]"
+                      dataType="i4"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[IDstore]"
+                      dataType="i4"
+                      name="IDstore" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      dataType="numeric"
+                      name="montant"
+                      precision="21"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[product_id]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDstore]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[IDstore]"
+                      name="IDstore" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      name="montant"
+                      precision="21"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux  Final.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux  Final\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux  Final\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{C21AC7A4-F64E-4367-BF88-20A02B2A3C17}"
+      DTS:From="Package\Fact Vente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Dim Store" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6A6729AD-4C0F-4073-99A1-0A7D158362C7}"
+      DTS:From="Package\Fact Vente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
+      DTS:To="Package\Dim Produit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{55756EFB-9752-4293-A952-E77BF7A92C70}"
+      DTS:From="Package\Dim Store"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\Alim Etat" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{ADCF00D4-4DCB-4436-99E1-B12B715770B5}"
+      DTS:From="Package\Alim Etat"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\Alim Ville" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C8F406C-F7A3-4E7D-8D0D-E34544C5FDC3}"
+      DTS:From="Package\Alim Ville"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 4"
+      DTS:To="Package\Alim Store" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{CC9E7F3F-2773-496D-9BD2-B0450BCAA128}"
+      DTS:From="Package\Alim Store"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 5"
+      DTS:To="Package\Tâche de flux  Final" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC8E776A-97AA-427F-9A52-6BD87C963C67}"
+      DTS:From="Package\Dim Produit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 6"
+      DTS:To="Package\Alim Categorie - Marque" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{0AE9C693-BE48-4A50-8518-F6F98EB3F8AB}"
+      DTS:From="Package\Alim Categorie - Marque"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 7"
+      DTS:To="Package\Alim Produit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{05738C4E-E7DE-4CF6-A3D2-5CD93E946C1B}"
+      DTS:From="Package\Alim Produit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 8"
+      DTS:To="Package\Tâche de flux  Final" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="131.333333333334,42.6666666666667"
+          Id="Package\Fact Vente"
+          TopLeft="347.49998446554,75.9473675871655" />
+        <NodeLayout
+          Size="249.333333333334,42.6666666666667"
+          Id="Package\Dim Store"
+          TopLeft="113.705352059832,152.065787804032" />
+        <NodeLayout
+          Size="257.333333333334,42.6666666666667"
+          Id="Package\Dim Produit"
+          TopLeft="500.848191896055,160.129697489928" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="392.611095576651,118.614034253832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.239076850153,33.4517535501997"
+              Start="0,0"
+              End="-154.239076850153,25.9517535501997">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.62227877771423" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.62227877771423"
+                    Point2="0,13.6222787777142"
+                    Point3="-4,13.6222787777142" />
+                  <mssgle:LineSegment
+                    End="-150.239076850153,13.6222787777142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150.239076850153,13.6222787777142"
+                    Point2="-154.239076850153,13.6222787777142"
+                    Point3="-154.239076850153,17.6222787777142" />
+                  <mssgle:LineSegment
+                    End="-154.239076850153,25.9517535501997" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="433.722206687762,118.614034253832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="195.792651874959,41.5156632360957"
+              Start="0,0"
+              End="195.792651874959,34.0156632360957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.906077506374" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.906077506374"
+                    Point2="0,16.906077506374"
+                    Point3="4,16.906077506374" />
+                  <mssgle:LineSegment
+                    End="191.792651874959,16.906077506374" />
+                  <mssgle:CubicBezierSegment
+                    Point1="191.792651874959,16.906077506374"
+                    Point2="195.792651874959,16.906077506374"
+                    Point3="195.792651874959,20.906077506374" />
+                  <mssgle:LineSegment
+                    End="195.792651874959,34.0156632360957" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\Alim Etat"
+          TopLeft="78.571425059012,247.293230367476" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="198.149796504276,194.732454470699">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.2450381119308,52.5607758967774"
+              Start="0,0"
+              End="-58.2450381119308,45.0607758967774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2253930295169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2253930295169"
+                    Point2="0,21.2253930295169"
+                    Point3="-4,21.2253930295169" />
+                  <mssgle:LineSegment
+                    End="-54.2450381119308,21.2253930295169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.2450381119308,21.2253930295169"
+                    Point2="-58.2450381119308,21.2253930295169"
+                    Point3="-58.2450381119308,25.2253930295169" />
+                  <mssgle:LineSegment
+                    End="-58.2450381119308,45.0607758967774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124,42.6666666666667"
+          Id="Package\Alim Ville"
+          TopLeft="81.2499963678419,342.105259401646" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\Alim Store"
+          TopLeft="75.892853750182,429.097739649494" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Alim Categorie - Marque"
+          TopLeft="527.480135149959,257.919797534766" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 6]"
+          TopLeft="627.164163523007,202.796364156595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.1234333781712"
+              Start="0,0"
+              End="0,47.6234333781712">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.6234333781712" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="137.333333333334,42.6666666666667"
+          Id="Package\Alim Produit"
+          TopLeft="562.698387543834,437.769419620203" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="628.089261346897,300.586464201432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,137.18295541877"
+              Start="0,0"
+              End="0,129.68295541877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,129.68295541877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="141.577377380094,289.959897034143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.1453623675039"
+              Start="0,0"
+              End="0,44.6453623675039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6453623675039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="141.904758392345,384.771926068313">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.3258135811804"
+              Start="0,0"
+              End="0,36.8258135811804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8258135811804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Tâche de flux  Final"
+          TopLeft="288.74998709187,536.687128610205" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="140.559520416849,471.76440631616">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="206.857133341688,64.922722294045"
+              Start="0,0"
+              End="206.857133341688,57.422722294045">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5946137139714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5946137139714"
+                    Point2="0,38.5946137139714"
+                    Point3="4,38.5946137139714" />
+                  <mssgle:LineSegment
+                    End="202.857133341688,38.5946137139714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="202.857133341688,38.5946137139714"
+                    Point2="206.857133341688,38.5946137139714"
+                    Point3="206.857133341688,42.5946137139714" />
+                  <mssgle:LineSegment
+                    End="206.857133341688,57.422722294045" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 8]"
+          TopLeft="631.365054210501,480.436086286869">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-229.281733785298,56.2510423233359"
+              Start="0,0"
+              End="-229.281733785298,48.7510423233359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4395597221674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4395597221674"
+                    Point2="0,33.4395597221674"
+                    Point3="-4,33.4395597221674" />
+                  <mssgle:LineSegment
+                    End="-225.281733785298,33.4395597221674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-225.281733785298,33.4395597221674"
+                    Point2="-229.281733785298,33.4395597221674"
+                    Point3="-229.281733785298,37.4395597221674" />
+                  <mssgle:LineSegment
+                    End="-229.281733785298,48.7510423233359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Alim Etat">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Alim Etat\Source OLE DB"
+          TopLeft="124.374994440004,58.8421046170832" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Alim Etat\Destination OLE DB"
+          TopLeft="410.624981643633,60.8947361734931" />
+        <EdgeLayout
+          Id="Package\Alim Etat.Paths[Sortie de source OLE DB]"
+          TopLeft="279.041661106671,81.2017537286215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.583320536962,0"
+              Start="0,0"
+              End="124.083320536962,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="124.083320536962,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Etat\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Etat\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Alim Ville">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Alim Ville\Destination OLE DB"
+          TopLeft="721.999978482724,106.999996811152" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Alim Ville\Source OLE DB"
+          TopLeft="379.999988675118,110.999996691942" />
+        <EdgeLayout
+          Id="Package\Alim Ville.Paths[Sortie de source OLE DB]"
+          TopLeft="534.666655341784,130.33333008488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.33332314094,0"
+              Start="0,0"
+              End="179.83332314094,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="179.83332314094,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Ville\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Ville\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Alim Store">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Alim Store\Destination OLE DB"
+          TopLeft="605.999981939793,168.999994963408" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Alim Store\Source OLE DB"
+          TopLeft="321.999990403652,171.999994874001" />
+        <EdgeLayout
+          Id="Package\Alim Store.Paths[Sortie de source OLE DB]"
+          TopLeft="476.666657070319,191.833328252037">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.333324869474,0"
+              Start="0,0"
+              End="121.833324869474,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="121.833324869474,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Store\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Store\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Alim Categorie - Marque">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Alim Categorie - Marque\Destination OLE DB"
+          TopLeft="736.999978035689,60.9999981820584" />
+        <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\Alim Categorie - Marque\Destination OLE DB 1"
+          TopLeft="742.999977856875,119.999996423721" />
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\Alim Categorie - Marque\Source OLE DB Brand"
+          TopLeft="356.999989360571,57.9999982714653" />
+        <NodeLayout
+          Size="201.333333333334,42.6666666666667"
+          Id="Package\Alim Categorie - Marque\Source OLE DB Category"
+          TopLeft="360.999989241362,125.999996244907" />
+        <EdgeLayout
+          Id="Package\Alim Categorie - Marque.Paths[Sortie de source OLE DB]"
+          TopLeft="543.666656027238,80.8333315600952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="193.333322008451,0"
+              Start="0,0"
+              End="185.833322008451,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="185.833322008451,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Alim Categorie - Marque.Paths[Sortie de source OLE DB1]"
+          TopLeft="562.333322574695,144.333329667648">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="180.66665528218,0"
+              Start="0,0"
+              End="173.16665528218,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="173.16665528218,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Alim Produit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Alim Produit\Destination OLE DB"
+          TopLeft="668.999980062247,91.9999972581864" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Alim Produit\Source OLE DB"
+          TopLeft="371.999988913536,93.9999971985818" />
+        <EdgeLayout
+          Id="Package\Alim Produit.Paths[Sortie de source OLE DB]"
+          TopLeft="526.666655580203,114.333330561717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.333324482044,0"
+              Start="0,0"
+              End="134.833324482044,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.833324482044,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Categorie - Marque\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Categorie - Marque\Destination OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Categorie - Marque\Source OLE DB Brand">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Categorie - Marque\Source OLE DB Category">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Produit\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Alim Produit\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Tâche de flux  Final">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Tâche de flux  Final\Destination OLE DB"
+          TopLeft="574.999982863665,106.999996811152" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Tâche de flux  Final\Source OLE DB"
+          TopLeft="316.999990552664,110.999996691942" />
+        <EdgeLayout
+          Id="Package\Tâche de flux  Final.Paths[Sortie de source OLE DB]"
+          TopLeft="471.666657219331,130.33333008488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.333325644334,0"
+              Start="0,0"
+              End="95.8333256443344,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.8333256443344,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux  Final\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux  Final\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
